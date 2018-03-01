@@ -1,0 +1,35 @@
+{
+  "vagrant" : {
+    "box" : "ubuntu/xenial64"
+    "ip" : "192.168.69.69",
+    "ram" : "4096"
+  },
+  "environments" : {
+    "default" : {
+      "applications" : [
+        {
+          "magento2": {
+            "container_name": "magento2",
+            "root": "magento2"
+          }
+        },
+        {
+          "wordpress": {
+            "container_name": "wordpress",
+            "root": "wordpress"
+          }
+        },
+        {
+          "nginx-balancer": {
+            "container_port": 80,
+            "host_forward_port": 80,
+            "sub-directories": {
+              "/": "wordpress",
+              "/store/": "magento2"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
