@@ -1,11 +1,12 @@
 name 'php-box-core'
 maintainer 'davideugenepratt'
 maintainer_email 'david@davideugenepratt.com'
-license 'All Rights Reserved'
+license 'Apache-2.0'
 description 'Installs/Configures php-box'
 long_description 'Installs/Configures php-box'
-version '0.1.4'
+version '0.1.7'
 chef_version '>= 12.1' if respond_to?(:chef_version)
+supports 'ubuntu'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
@@ -25,4 +26,5 @@ depends 'php'
 depends 'composer'
 depends 'yum-mysql-community'
 depends 'mysql'
+depends 'nvm'
 

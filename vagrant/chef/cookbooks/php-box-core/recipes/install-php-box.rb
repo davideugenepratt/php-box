@@ -8,7 +8,7 @@
 #     command "sudo touch /etc/profile.d/php-box.sh && echo 'export PATH=$PATH:/vagrant/php-box' >> /etc/profile.d/php-box.sh"
 # end
 
-if node[:platform] == 'redhat' || node[:platform] == 'centos'
+if node["platform"] == 'redhat' || node["platform"] == 'centos'
 
   package 'Install EPEL' do
 
@@ -20,7 +20,7 @@ if node[:platform] == 'redhat' || node[:platform] == 'centos'
 
 end
 
-if node[:platform] == 'ubuntu' || node[:platform] == 'debian'
+if node["platform"] == 'ubuntu' || node["platform"] == 'debian'
 
   package 'Install libxml2-dev' do
 
@@ -45,7 +45,7 @@ php_requirements = [ 'gd' , 'mbstring' , 'mcrypt' , 'curl' , 'intl' , 'bcmath' ,
 
 php_requirements.each_with_index do |req,i|
 
-    if node[:platform] == 'redhat' || node[:platform] == 'centos'
+    if node["platform"] == 'redhat' || node["platform"] == 'centos'
 
       package 'Install php-' + req do
 
@@ -55,7 +55,7 @@ php_requirements.each_with_index do |req,i|
 
     end
 
-    if node[:platform] == 'ubuntu' || node[:platform] == 'debian'
+    if node["platform"] == 'ubuntu' || node["platform"] == 'debian'
 
       package 'Install php7.0-' + req do
 
